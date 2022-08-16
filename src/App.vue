@@ -76,7 +76,7 @@ onMounted(() => {
             {{ anime.synopsis.slice(0, 120) }}...
           </p>
           <span class="flex-1"></span>
-          <button @click="addAnime(anime)">add to my anime</button>
+          <button class="button" @click="addAnime(anime)">add to my anime</button>
         </div>
       </div>
     </div>
@@ -87,17 +87,15 @@ onMounted(() => {
         <img :src="anime.image" alt="">
         <h3>{{ anime.title }}</h3>
         <div class="flex-1"></div>
-        <div class="containerofbtn">
-             <button class="btn" v-if="anime.watched_episodes > 0" @click="decreaseWatch(anime)">
-            -
-          </button>
         <span class="episodes">
           {{ anime.watched_episodes }} // {{ anime.total_episodes }}
         </span>
-        <button class="btn" v-if="anime.total_episodes !== anime.watched_episodes" @click="increaseWatch(anime)">
+          <button class="button" v-if="anime.watched_episodes > 0" @click="decreaseWatch(anime)">
+         -
+       </button>
+        <button class="button" v-if="anime.total_episodes !== anime.watched_episodes" @click="increaseWatch(anime)">
           +
         </button>
-        </div>
       </div>
     </div>
   </main>
@@ -138,7 +136,7 @@ form input {
 	padding: 0.5rem 1rem;
 	width: 100%;
 }
-.button, .btn {
+.button, .button {
 	appearance: none;
 	outline: none;
 	border: none;
@@ -154,7 +152,7 @@ form input {
 	text-transform: uppercase;
 	transition: 0.4s;
 }
-.button:hover,.btn:hover {
+.button:hover,.button:hover {
 	background-position: right;
 }
 .results {
@@ -234,18 +232,5 @@ form input {
 .anime .button:last-of-type {
 	margin-right: 0;
 }
-.containerofbtn{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
- .btn{
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
- }
 </style>
